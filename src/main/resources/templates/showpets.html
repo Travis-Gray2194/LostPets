@@ -10,13 +10,14 @@
 
 
 
-<label>Name</label><span th:text="${pet.name}"></span><br />
-<label>Age</label><span th:number="${pet.age}"></span><br />
+<label>Name:</label><span th:text="${pet.name}"></span><br />
+<label>Age:</label><span th:number="${pet.age}"></span><br />
 <label>Owner Phone Number:</label><span th:text="${pet.ownerphonenumber}"></span><br />
-<label>Type of Animal</label><span th:text="${pet.Type}"></span><br />
-<label>Breed</label><span th:text="${pet.Breed}"></span><br />
-<label>Colour</label><span th:text="${pet.Colour}"></span><br />
+<label>Type of Animal:</label><span th:text="${pet.Type}"></span><br />
+<label>Breed:</label><span th:text="${pet.Breed}"></span><br />
+<label>Colour:</label><span th:text="${pet.Colour}"></span><br />
 <label>Distinguishing Features:</label><span th:text="${pet.DistinguishingFeatures}"></span><br />
+<label>Current Status:</label><span th:text="${pet.currentStatus}"></span><br />
 <a th:href="@{/delete/{id}(id=${pet.id})}">Delete this
     Pet</a>
 </body>

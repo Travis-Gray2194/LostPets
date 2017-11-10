@@ -33,6 +33,8 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class PetDetails {
+    public PetDetails() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,8 +48,9 @@ public class PetDetails {
     @Size(min=2, max=30)
     private String name;
 
-
-    @NotEmpty
+//    The validation annotations don't work well on fields of native types.
+// Change the field from type "int" to "Integer" or "BigInteger" and the @NotNull annotation should work fine.
+    @NotNull
     private int age;
 
     @NotEmpty
@@ -62,9 +65,21 @@ public class PetDetails {
     @NotEmpty
     private String DistinguishingFeatures;
 
+    @NotNull
+    @Size(min = 4)
+    private String currentStatus;
+
     @Length(max=10,min=10,message="Phone number is not valid. Should be of length 10.")
     @NotEmpty(message="Phone field is mandatory.") @NumberFormat(style= NumberFormat.Style.NUMBER)
     private String ownerphonenumber;
+
+    public String getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public void setCurrentStatus(String currStatus) {
+        this.currentStatus = currStatus;
+    }
 
     public long getId() {
         return id;
@@ -128,5 +143,21 @@ public class PetDetails {
 
     public void setOwnerphonenumber(String ownerphonenumber) {
         this.ownerphonenumber = ownerphonenumber;
+    }
+
+
+    @Override
+    public String toString() {
+        return "PetDetails{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", Type='" + Type + '\'' +
+                ", Breed='" + Breed + '\'' +
+                ", Colour='" + Colour + '\'' +
+                ", DistinguishingFeatures='" + DistinguishingFeatures + '\'' +
+                ", currentStatus='" + currentStatus + '\'' +
+                ", ownerphonenumber='" + ownerphonenumber + '\'' +
+                '}';
     }
 }

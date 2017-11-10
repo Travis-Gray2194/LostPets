@@ -6,7 +6,7 @@
     <title>Pets List</title>
 </head>
 <body>
-<a href="/add">Add a LostPet</a>
+<a href="/add">Add a Lost Pet</a>
 
     <table>
         <tr>
@@ -28,6 +28,9 @@
             <td th:text="${pet.Colour}"></td>
             <td th:text="${pet.Type}"></td>
             <td th:text="${pet.DistinguishingFeatures}"></td>
+            <td th:text="${pet.currentStatus}"></td>
+
+
             <td>
                 <a th:href="@{/update/{id}(id=${pet.id})}">Update</a> -
                 <a th:href="@{/detail/{id}(id=${pet.id})}">Details</a> -

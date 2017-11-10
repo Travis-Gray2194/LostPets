@@ -36,6 +36,8 @@ public class HomeController {
 
     @PostMapping("/process")
     public String processpetsForm(@Valid PetDetails petDetails, BindingResult result){
+        System.out.println(petDetails.toString());
+        System.out.println(result.toString());
         if (result.hasErrors()){
             return "petform";
         }

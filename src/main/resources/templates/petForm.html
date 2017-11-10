@@ -32,6 +32,9 @@
         <label>Owner Phone Number:</label><input type="text" th:field="*{ownerphonenumber}" />
         <span th:if="${#fields.hasErrors('ownerphonenumber')}" th:errors="*{ownerphonenumber}"></span><br />
 
+        <label>Current Status(Found or Still Missing):</label><input type="text" th:field="*{currentStatus}" />
+        <span th:if="${#fields.hasErrors('currentStatus')}" th:errors="*{currentStatus}"></span><br />
+
 
         <input type="submit" value="Submit" />
 
