@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Pets List</title>
+</head>
+<body>
+<a href="/add">Add a LostPet</a>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Owner Phone Number</th>
+            <th>Type</th>
+            <th>Breed</th>
+            <th>Colour</th>
+            <th>Distinguishing Features</th>
+        </tr>
+
+        <tr th:each="pet :${pets}">
+
+            <td th:text="${pet.name}"></td>
+            <td th:number="${pet.age}"></td>
+            <td th:text="${pet.ownerphonenumber}"></td>
+            <td th:text="${pet.Breed}"></td>
+            <td th:text="${pet.Colour}"></td>
+            <td th:text="${pet.Type}"></td>
+            <td th:text="${pet.DistinguishingFeatures}"></td>
+            <td>
+                <a th:href="@{/update/{id}(id=${pet.id})}">Update</a> -
+                <a th:href="@{/detail/{id}(id=${pet.id})}">Details</a> -
+                <a th:href="@{/delete/{id}(id=${pet.id})}">Delete</a>
+
+            </td>
+
+        </tr>
+
+    </table>
+
+</body>
+</html>
